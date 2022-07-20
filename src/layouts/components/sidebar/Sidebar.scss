@@ -1,0 +1,17 @@
+.left-sidebar {
+  width: 350px;
+  height: 100vh;
+  padding: 25px 10px;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+
+  &__logo {
+    margin-bottom: 20px;
+    padding-left: 8px;
+
+    svg {
+      fill: var(--color-primary);
+    }
+  }
+}
