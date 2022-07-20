@@ -42,6 +42,7 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: calc(100% / 5);
 
   img {
     width: 100%;
@@ -91,6 +92,7 @@
   cursor: pointer;
   position: relative;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: calc(100% / 5);
 
   &:nth-child(5) {
     margin-right: 0 !important;

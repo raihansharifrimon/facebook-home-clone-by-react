@@ -4,12 +4,12 @@ import PostCardHeader from "./PostCardHeader";
 import PostContents from "./PostContents";
 import PostFooter from "./PostFooter";
 
-function PostCard() {
+function PostCard({ post }) {
   return (
     <div className="post-card">
-      <PostCardHeader />
-      <PostContents />
-      <PostFooter />
+      <PostCardHeader user={post.user} />
+      <PostContents caption={post.caption} image={post.image} />
+      <PostFooter post={post} />
     </div>
   );
 }

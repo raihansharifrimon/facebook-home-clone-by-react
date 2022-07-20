@@ -1,37 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Avatar from "../avatar/Avatar";
 import "./List.scss";
 
-function List({ list, title, isIconList }) {
+function List({ list, title }) {
   return (
     <div className="list">
       <h5 className="list__title">{title}</h5>
 
       <div className="list__items">
-        {list.map((item) => (
-          <ListItem key={item.id} isIconList={isIconList} title={item.title}>
-            {item.avater ? (
-              <img src={item.avater} alt={item.title} />
-            ) : (
-              item.icon
-            )}
-          </ListItem>
-        ))}
+        {list &&
+          list.length > 0 &&
+          list.map((item) => <ListItem key={item.id} item={item} />)}
       </div>
     </div>
   );
 }
 
-function ListItem({ children, title, isIconList }) {
+function ListItem({ title, item }) {
   return (
     <div className="list-item">
       <Link to="/">
-        {isIconList ? (
-          <span className="icon">{children}</span>
+        {item.icon ? (
+          <span className="icon">{item.icon}</span>
         ) : (
-          <div className="list-item__avater">{children}</div>
+          <Avatar user={item} size={40} isLink={false} />
         )}
-        <h5 className="list-item__title">{title}</h5>
+        <h5 className="list-item__title">
+          {item.icon ? item.title : item.name}
+        </h5>
       </Link>
     </div>
   );

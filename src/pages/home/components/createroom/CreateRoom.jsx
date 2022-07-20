@@ -1,35 +1,31 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { MdVideoCall } from "react-icons/md";
 import Avatar from "../../../../common/avatar/Avatar";
 import "./CreateRoom.scss";
 
 function CreateRoom() {
-  const users = [
-    {
-      id: 1,
-      image: "https://cdn.vuetifyjs.com/images/john.jpg",
-      online: true,
-      link: "/user",
-    },
-    {
-      id: 2,
-      image: "https://cdn.vuetifyjs.com/images/john.jpg",
-      online: true,
-      link: "/user",
-    },
-    {
-      id: 3,
-      image: "https://cdn.vuetifyjs.com/images/john.jpg",
-      online: true,
-      link: "/user",
-    },
-    {
-      id: 4,
-      image: "https://cdn.vuetifyjs.com/images/john.jpg",
-      online: false,
-      link: "/user",
-    },
-  ];
+  const [users, setUsers] = useState([]);
+
+  const getData = () => {
+    fetch("./data/users.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (myJson) {
+        setUsers(myJson.users);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="create-room">
       <button className="btn create-room__btn">

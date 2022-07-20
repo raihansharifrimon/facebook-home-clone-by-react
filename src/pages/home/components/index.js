@@ -1,7 +1,7 @@
 import CreatePostCard from './createpost/CreatePostCard'
 import CreateRoom from './createroom/CreateRoom'
-import PostList from './posts/PostList'
-import StoryList from './storycard/StoryList'
+import PostList from './post/PostList'
+import Stories from './storycard/Stories'
 
-export { StoryList, CreatePostCard, CreateRoom, PostList }
+export { Stories, CreatePostCard, CreateRoom, PostList }
 

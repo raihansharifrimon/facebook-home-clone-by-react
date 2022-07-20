@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineShop } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
@@ -50,29 +50,30 @@ function LeftSidebar() {
     },
   ];
 
-  const shortcutsList = [
-    {
-      id: 1,
-      title: "Adam Smith",
-      icon: null,
-      avater: "https://cdn.vuetifyjs.com/images/john.jpg",
-    },
-    {
-      id: 2,
-      title: "Raihan Khan",
-      icon: null,
-      avater: "https://cdn.vuetifyjs.com/images/john.jpg",
-    },
-    {
-      id: 3,
-      title: "Hamidul Alam",
-      icon: null,
-      avater: "https://cdn.vuetifyjs.com/images/john.jpg",
-    },
-  ];
+  const [users, setUsers] = useState([]);
+
+  const getData = () => {
+    fetch("./data/users.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (myJson) {
+        setUsers(myJson.users);
+      });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
-    <div className="left-sidebar">
+    <div className="left-sidebar scrollbar">
       <div className="left-sidebar__logo">
         <svg
           aria-label="Facebook logo"
@@ -84,9 +85,9 @@ function LeftSidebar() {
         </svg>
       </div>
 
-      {<List title={"Suggested"} list={suggestedList} isIconList />}
+      {<List title={"Suggested"} list={suggestedList} />}
 
-      {<List title={"Your shortcuts"} list={shortcutsList} />}
+      <List title={"Your shortcuts"} list={users} />
     </div>
   );
 }

@@ -1,13 +1,18 @@
 import React from "react";
+import Avatar from "../../../../common/avatar/Avatar";
 import "./CreatePostCard.scss";
 
 function CreatePostCard() {
+  const user = {
+    id: 3,
+    image: "https://cdn.vuetifyjs.com/images/john.jpg",
+    online: true,
+    link: "/user",
+  };
   return (
     <div className="create-post">
       <div className="create-post__header">
-        <div className="create-post__user">
-          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="" />
-        </div>
+        <Avatar user={user} />
         <button className="btn create-post__btn">
           What's on your mind, Hasanuzzaman?
         </button>

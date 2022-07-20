@@ -1,11 +1,11 @@
 import React from "react";
-import { StoryList, CreatePostCard, CreateRoom, PostList } from "./components";
+import { Stories, CreatePostCard, CreateRoom, PostList } from "./components";
 import "./Home.scss";
 
 function Home() {
   return (
     <div className="post-content">
-      <StoryList />
+      <Stories />
       <CreatePostCard />
       <CreateRoom />
       <PostList />

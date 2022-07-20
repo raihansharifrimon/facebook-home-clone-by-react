@@ -38,4 +38,30 @@ ul {
   font-size: 1rem;
   line-height: 1.2;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+/* custom scroll bar */
+.scrollbar {
+  scrollbar-width: thin;
+  overflow-y: auto;
+  overflow: hidden;
+
+  &:hover {
+    overflow-y: auto;
+  }
+}
+.scrollbar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 16px var(--color-main-bg);
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 7px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 16px rgba(228, 217, 217, 0.041);
+  background-color: #ccc;
 }
