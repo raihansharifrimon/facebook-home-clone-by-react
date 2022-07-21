@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineGif } from "react-icons/ai";
 import { BsCamera, BsEmojiSmile, BsSticky } from "react-icons/bs";
 import Avatar from "../avatar/Avatar";
 
-function CommnetInput() {
+function CommnetInput({ onSubmit }) {
+  const [comment, setComment] = useState("");
+
+  const handleChange = (e) => {
+    setComment(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(comment);
+    setComment("");
+  };
+
   const user = {
     id: 3,
     image: "https://cdn.vuetifyjs.com/images/john.jpg",
@@ -15,9 +27,14 @@ function CommnetInput() {
     <div className="comment__input">
       <Avatar user={user} />
       <div className="comment__input-inner">
-        <textarea
-          className="comment__input-control"
-          placeholder="Write a commnent..."></textarea>
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={handleChange}
+            value={comment}
+            className="comment__input-control"
+            placeholder="Write a commnent..."
+          />
+        </form>
         <div className="comment__input-inner__actions">
           <button className="btn comment__input-btn">
             <BsEmojiSmile />

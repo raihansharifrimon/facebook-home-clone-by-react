@@ -78,7 +78,7 @@ function RightSidebar() {
   }, []);
 
   return (
-    <div className="right-sidebar left-sidebar scrollbar">
+    <div className="sidebar right-sidebar scrollbar">
       <List title={"Birthdays"} list={birthdays} />
       <List title={"Contacts"} list={users} />
     </div>

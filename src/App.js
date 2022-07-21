@@ -3,6 +3,7 @@ import { DefaultLayout } from './layouts';
 import { Home } from './pages';
 import './styles/style.scss';
 
+
 function App() {
   return (
     <Routes>

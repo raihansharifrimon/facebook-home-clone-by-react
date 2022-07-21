@@ -73,8 +73,8 @@ function LeftSidebar() {
   }, []);
 
   return (
-    <div className="left-sidebar scrollbar">
-      <div className="left-sidebar__logo">
+    <div className="sidebar left-sidebar scrollbar">
+      <div className="sidebar__logo">
         <svg
           aria-label="Facebook logo"
           className="i9kwxoiq"

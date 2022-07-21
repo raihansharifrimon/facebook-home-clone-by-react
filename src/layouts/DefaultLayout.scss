@@ -1,4 +1,39 @@
 .default-layout {
   display: grid;
-  grid-template-columns: 5% 22% 51% 22%;
+  grid-template-columns: auto 22% auto 22%;
+}
+
+@media (max-width: 992px) {
+  .default-layout {
+    grid-template-columns: auto auto;
+  }
+
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
+
+  .post-content {
+    width: 100%;
+    margin: 20px 50px;
+  }
+
+  .post__inner {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-content {
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-create,
+  .story-card {
+    height: 120px !important;
+    width: calc(100% / 4) !important;
+  }
+
 }
