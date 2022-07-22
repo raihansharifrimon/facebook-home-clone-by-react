@@ -19,6 +19,7 @@ function Comments({ comments }) {
       },
     };
     setCommentList([...commentList, newComment]);
+    console.log(comment, "comment");
   };
 
   return (
