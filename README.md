@@ -1,5 +1,5 @@
-# Getting Started with Create React App
-<img src="https://github.com/raihansharifrimon/facebook-home-clone-by-react/blob/master/public/images/facebook-ss.png">
+# Facebook Home page Clone
+<img src="https://github.com/raihansharifrimon/facebook-home-clone-by-react/blob/main/public/images/facebook-ss.png">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
