@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
+import useFetch from "../../../hooks/useFetch";
 import "./Sidebar.scss";
-
 import List from "../../../common/list/List";
 
 function RightSidebar() {
@@ -52,30 +51,16 @@ function RightSidebar() {
       ),
       online: false,
       link: "/users/1",
-      title: <span><strong>Harry Potter</strong> and <strong>Potter Khan</strong> have their birthdays today.</span>,
+      title: (
+        <span>
+          <strong>Harry Potter</strong> and <strong>Potter Khan</strong> have
+          their birthdays today.
+        </span>
+      ),
     },
   ]);
-  const [users, setUsers] = useState([]);
-
-  const getData = () => {
-    fetch("./data/users.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (myJson) {
-        setUsers(myJson.users);
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [data] = useFetch("./data/users.json");
+  const users = data.users;
 
   return (
     <div className="sidebar right-sidebar scrollbar">

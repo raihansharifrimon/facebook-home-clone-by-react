@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
 import { AiOutlineShop } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineOndemandVideo } from "react-icons/md";
 import { RiFlag2Line } from "react-icons/ri";
-
+import useFetch from "../../../hooks/useFetch";
 import "./Sidebar.scss";
 
 import List from "../../../common/list/List";
@@ -50,27 +49,8 @@ function LeftSidebar() {
     },
   ];
 
-  const [users, setUsers] = useState([]);
-
-  const getData = () => {
-    fetch("./data/users.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (myJson) {
-        setUsers(myJson.users);
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [data] = useFetch("./data/users.json");
+  const users = data.users;
 
   return (
     <div className="sidebar left-sidebar scrollbar">

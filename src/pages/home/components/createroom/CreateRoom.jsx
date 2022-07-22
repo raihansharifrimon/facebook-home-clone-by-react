@@ -1,30 +1,11 @@
-import { useEffect, useState } from "react";
 import { MdVideoCall } from "react-icons/md";
 import Avatar from "../../../../common/avatar/Avatar";
+import useFetch from "../../../../hooks/useFetch";
 import "./CreateRoom.scss";
 
 function CreateRoom() {
-  const [users, setUsers] = useState([]);
-
-  const getData = () => {
-    fetch("./data/users.json", {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then(function (response) {
-        console.log(response);
-        return response.json();
-      })
-      .then(function (myJson) {
-        setUsers(myJson.users);
-      });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const [data] = useFetch("./data/users.json");
+  const users = data.users;
 
   return (
     <div className="create-room">
@@ -34,9 +15,9 @@ function CreateRoom() {
         </span>
         Create Room
       </button>
-      {users.map((user) => (
-        <Avatar size={50} key={user.id} user={user} />
-      ))}
+      {users &&
+        users.length > 0 &&
+        users.map((user) => <Avatar size={50} key={user.id} user={user} />)}
     </div>
   );
 }
